@@ -74,7 +74,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:message)
     end
     def correct_user
-      @pin = current_user.pins.find_by(id:params[:id])
-      redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+      @post = current_user.posts.find_by(id:params[:id])
+      redirect_to posts_path, notice: "Not authorized to edit this post" if @post.nil?
     end
 end
